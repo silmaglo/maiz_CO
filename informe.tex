@@ -1,0 +1,71 @@
+\documentclass[12pt, spanish]{article}
+\usepackage[left = 2.5cm, right = 2.5cm, bottom = 2.5cm, top = 2.5cm]{geometry}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, linkcolor=blue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[svgnames]{xcolor}
+\usepackage{appendix}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\usepackage{amsmath}
+\usepackage{subcaption}
+\renewcommand{\tablename}{Tabla}
+\renewcommand{\figurename}{Figura}
+
+%comandos para poner la bibliografía con estilo de cita harvard
+\renewcommand{\refname}{Referencias} %para que ponga referencias en el apartado de referencias y no el término en inglés
+\renewcommand{\citeform[1]}{\textcolor{blue}{#1}}% las citas en el texto salen de color azul
+
+%líneas exclusivas de la implementación del estilo harvard
+%usepackage[sort&compress]{natbib}
+%\bibliographystyle{abbrvnat}
+%\setcitestyle{authoryear,open={(},close={)}}
+
+\renewcommand{\contentsname}{Índice}
+\usepackage{listings}
+\usepackage{afterpage}
+\pagestyle{headings}%este estilo de página permite imprimir el nombre del capítulo o sección que se está procesando en la cabecera junto con el número de página en el lado opuesto, permaneciendo el pie de página vacio.
+\usepackage{color}
+\setlength{\parskip}{1em} %con esta línea dejamos una línea en blanco entre párrafos
+
+
+
+\begin{document}
+
+\pagenumbering{roman}
+\tableofcontents 
+\newpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+EMPEZAR A ESCRIBIR DESDE AQUÍ!
+
+\section{}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\bibliography{.bib}
+\bibliographystyle{apalike}
+\end{document}
