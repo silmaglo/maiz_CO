@@ -38,9 +38,72 @@
 \pagenumbering{arabic}
 \setcounter{page}{1}
 
-EMPEZAR A ESCRIBIR DESDE AQUÍ!
+\section{Punto de partida del proyecto}
 
-\section{}
+Nuestros datasets:
+1. producción(formato csv) ;
+https://www.datos.gov.co/Agricultura-y-Desarrollo-Rural/Cadena-Productiva-Ma-z-Area-Producci-n-Y-Rendimien/d968-yfb5
+2. imágenes de temperatura (formato tiff, imagen georeferenciada);
+https://developers.google.com/earth-engine/datasets/catalog/MODIS_006_MOD11A1
+3.polígonos de veredas que contienen municipios (formato shp).
+https://geoportal.dane.gov.co/servicios/descarga-y-metadatos/descarga-nivel-de-referencia-de-veredas/
+
+\section{Descripción general del proyecto}
+
+\subsection{Objetivos}
+
+Comparar la producción de Zea mays (maíz) en función de la temperatura entre los diferentes municipios de Colombia (serán las áreas de producción). Para comparar la producción usaremos el cociente de toneladas producidas por hectárea (rendimiento). También compararemos la eficiencia de la tierra (proporción del terreno sembrado que genera producto)
+
+Todo ello para determinar la zona(municipio) y temperatura de mayor producción de zea mays en Colombia.
+
+\subsection{Resultados esperados}
+
+Conforme aumente la temperatura se espera una producción mayor , con una temperatura asociada a una máxima producción de unos 25 grados centígrados. A temperaturas inferiores el rendimiento es menor llegando a una producción nula para temperaturas muy bajas.
+
+\subsection{Requisitos}
+
+Requisitos: aquí hablamos sobre los datos que tenemos (es nuestro punto de partida, de arriba, lo que hemos puesto de los formatos y a qué queremos llegar a partir de ellos).
+1. producción: cadena productiva de maíz. En este csv podemos encontrar el rendimiento de la producción de Zea mays (maíz) en unidades de toneladas/hectárea por cada municipio de Colombia. Los datos se dividen por semestres.
+2. imágenes de temperatura: temperatura por vereda (más pequeño que un municipio, un municipio se divide en veredas) para cada día. Para cada día tenemos una temperatura máxima y otra mínima. (importante: la necesitamos semestralmente porque los datos de la cosecha están por semestres, para ello hacemos una media de cada día, y después con las medias de todos los días, hacemos la media de cada semestre, obteniendo así 2 temperaturas por año)
+3. polígonos de veredas que contienen municipios: tenemos las temperaturas por vereda, y la producción por municipio. Entonces debemos agrupar las temperaturas de las veredas a cada respectivo municipio para ya tener las temperaturas semestrales por municipio.
+
+\subsection{Requerimientos técnicos}
+
+Cómo obtendríamos los datos si no los tuvieramos.
+
+\subsection{Descripción del problema}
+
+\subsubsection{Interés}
+
+El problema a enfocar es encontrar el municipio de Colombia óptimo para la producción de Zea Mays, además de la temperatura asociada para dicha producción óptima. En definitiva, optimizar la producción de maíz en Colombia eligiendo la mejor región de producción.
+        
+(TEMP) 
+El cambio climático es un problema global que afecta a varios sectores de la industria. En específico, la alimentaria es una de las más relevantes y la que es más afectada por cambios en la climatología. Comprender el estado actual de la producción agrícola teniendo en cuenta. 
+
+\subsubsection{Cobertura (geográfica, temporal)}
+
+La cobertura temporal abarca el período 2015-2018, dividiendo los años por   semestres. Concretamente para 2018 las medidas finalizan con el primer semestre.
+
+En cuanto a la cobertura geográfica se centra en Colombia y en los municipios productores del cultivo elegido.
+
+La limitación estaría centrada en el período estudiado para la producción, se ofrecen esos años y nada más.
+
+\subsubsection{Objetivos}
+
+Parafrasear los objetivos del principio.
+
+\subsubsection{Descripción de las fuentes de los datos}
+
+Orígenes: Los datos han sido extraídos de las siguientes bases de datos en abierto:
+Base de datos en abierto del gobierno de Colombia: https://www.datos.gov.co/
+
+Concretamente los datos de producción han sido obtenidos de la división de agricultura y desarrollo rural 
+
+The Land Processes Distributed Active Center (LP DACC), base de datos en abierto englobada dentro del sistema de observación de la NASA (NASA Earth Observing System Data and Information System, EOSDIS)  en la división USGS Earth Resources Observation and Science (EROS): https://lpdaac.usgs.gov/
+
+Geoportal del Departamento Administrativo Nacional de Estadística de Colombia (DANE): https://geoportal.dane.gov.co/
+
+Formatos:
 
 
 
@@ -66,6 +129,11 @@ EMPEZAR A ESCRIBIR DESDE AQUÍ!
 
 
 
-\bibliography{.bib}
+
+
+
+
+
+\bibliography{referencias_informe.bib}
 \bibliographystyle{apalike}
 \end{document}
