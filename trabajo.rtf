@@ -1,0 +1,418 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \\documentclass[12pt, spanish]\{article\}\
+\\usepackage[left = 2.5cm, right = 2.5cm, bottom = 2.5cm, top = 2.5cm]\{geometry\}\
+\\usepackage[spanish]\{babel\}\
+\\usepackage\{graphicx\}\
+\\usepackage[colorlinks=true, linkcolor=blue]\{hyperref\}\
+\\usepackage[utf8]\{inputenc\}\
+\\usepackage[svgnames]\{xcolor\}\
+\\usepackage\{appendix\}\
+\\newcommand\\tab[1][1cm]\{\\hspace*\{#1\}\}\
+\\usepackage\{amsmath\}\
+\\usepackage\{subcaption\}\
+\\renewcommand\{\\tablename\}\{Tabla\}\
+\\renewcommand\{\\figurename\}\{Figura\}\
+\\usepackage\{listings\}\
+\\usepackage\{afterpage\}\
+\\usepackage\{color\}\
+\\usepackage\{here\}\
+\\usepackage\{tcolorbox\}\
+\\usepackage\{url\}\
+\\usepackage\{hyperref\}\
+\\usepackage\{parskip\}\
+\\usepackage\{framed, color\}\
+\\textheight=21cm\
+\\textwidth=17cm\
+\\topmargin=-1cm\
+\\oddsidemargin=0cm\
+\\parindent=0mm\
+\\pagestyle\{plain\}\
+\
+\\begin\{document\}\
+\\begin\{titlepage\}\
+	\\centering\
+	\\includegraphics[width=1\\textwidth]\{header.jpg\}\\par\\vspace\{1cm\}\
+	\\vspace\{1cm\}\
+	\{\\LARGE\\bfseries \\textsc\{Proyecto de Ciclo de Vida de los Datos\}\\par\}\
+	\
+	\\noindent\\rule\{15cm\}\{1pt\}\
+	\\vspace\{3cm\}\
+	\
+	\{\\Large \\textbf\{An\'e1lisis de la relaci\'f3n entre la temperatura, localizaci\'f3n geogr\'e1fica y rendimiento en la producci\'f3n de \\textit\{Zea mays\} en Colombia\}\\par\}\
+	\\vfill\
+	\\begin\{flushright\}\
+	\{\\large \\textsc\{Enero de 2020\}\} \\\\\
+	\\vspace\{\\baselineskip\}\
+	 \\begin\{align*\}\
+	 \\hspace\{8.5cm\}& & & &\\text\{Alumno (1):\} &\\ \\text\{David Montero Loaiza\}\\\\\
+	 \\hspace\{8.5cm\}& & & &\\text\{Alumna (2):\} &\\ \\text\{Ana Gonz\'e1lez Guerra\}\\\\\
+	& & & &\\text\{Alumno (3):\} &\\ \\text\{Javier Alonso del Saso\}\\\\\
+	& & & &\\text\{Alumna (4):\} &\\ \\text\{Silvia Magdalena L\'f3pez Monz\'f3\}\\\\\
+	 \\end\{align*\}\
+	\\end\{flushright\}\
+\\end\{titlepage\}\
+\
+%comandos para poner la bibliograf\'eda con estilo de cita harvard\
+\\renewcommand\{\\refname\}\{Referencias\} %para que ponga referencias en el apartado de referencias y no el t\'e9rmino en ingl\'e9s\
+\\renewcommand\{\\citeform[1]\}\{\\textcolor\{blue\}\{#1\}\}% las citas en el texto salen de color azul\
+\
+%l\'edneas exclusivas de la implementaci\'f3n del estilo harvard\
+%usepackage[sort&compress]\{natbib\}\
+%\\bibliographystyle\{abbrvnat\}\
+%\\setcitestyle\{authoryear,open=\{(\},close=\{)\}\}\
+\
+\\renewcommand\{\\contentsname\}\{\'cdndice\}\
+\
+\\pagestyle\{headings\}%este estilo de p\'e1gina permite imprimir el nombre del cap\'edtulo o secci\'f3n que se est\'e1 procesando en la cabecera junto con el n\'famero de p\'e1gina en el lado opuesto, permaneciendo el pie de p\'e1gina vacio.\
+\
+\\setlength\{\\parskip\}\{1em\} %con esta l\'ednea dejamos una l\'ednea en blanco entre p\'e1rrafos\
+\
+\
+\
+\
+\
+\\pagenumbering\{roman\}\
+\\tableofcontents \
+\\newpage\
+\\pagenumbering\{arabic\}\
+\\setcounter\{page\}\{1\}\
+\
+\\section\{Punto de partida del proyecto\}\
+\
+En el siguiente trabajo, presentaremos resultados obtenidos y analizados a partir de tres fuentes de datos en abierto. Estas fuentes ser\'e1n los siguientes datasets:\
+\
+\\begin\{itemize\}\
+    \\item Producci\'f3n del ma\'edz en Colombia \\cite\{ref1\}\
+    \
+    \\item Im\'e1genes de temperatura a escala global \\cite\{ref2\} \
+    \
+    \\item Pol\'edgonos de veredas de Colombia, donde un conjunto de veredas define un municipio \\cite\{ref3\}\
+\\end\{itemize\}\
+\
+\
+\\section\{Descripci\'f3n general del proyecto\}\
+\
+\\subsection\{Objetivos\}\
+\
+El objetivo principal del proyecto es obtener la dependencia de la producci\'f3n de Zea mays (ma\'edz) con la temperatura de las diferentes \'e1reas de producci\'f3n localizadas en municipios de Colombia. Para comparar dicha producci\'f3n, usaremos el cociente de toneladas producidas por hect\'e1rea, que definiremos como rendimiento. Tambi\'e9n compararemos la proporci\'f3n del terreno sembrado que genera producto que definiremos como eficiencia de la tierra.\
+\
+Todo ello para determinar la zona (o municipio) y temperatura de mayor producci\'f3n de zea mays en Colombia.\
+\
+\\subsection\{Resultados esperados\}\
+Como primera aproximaci\'f3n, esperamos que a medida la temperatura aumente, tambi\'e9n lo haga la producci\'f3n, con una temperatura \'f3ptima asociada a una m\'e1xima producci\'f3n de unos 25\'baC. A temperaturas inferiores el rendimiento es menor llegando a una producci\'f3n nula para temperaturas muy bajas.\
+\
+\\newpage\
+\
+\\subsection\{Requisitos\}\
+\
+A continuaci\'f3n, desarrollaremos las funcionalidad de cada uno de los datasets introducidos anteriormente.\
+\
+\\begin\{itemize\}\
+    \\item Dataset de la cadena productiva de ma\'edz: en este csv podemos encontrar el rendimiento de la producci\'f3n de Zea mays (ma\'edz) en unidades de toneladas/hect\'e1rea por cada municipio de Colombia. Los datos se encuentran divididos por semestres, es decir, tenemos un dato por cada seis meses.\
+    \
+    \\item Im\'e1genes de la temperatura: podemos observar la temperatura diara en cada vereda de Colombia, donde un conjunto de veredas constituye un municipio. Para cada d\'eda tenemos una temperatura m\'e1xima y una temperatura m\'ednima. Es importante darse cuenta de que como los datos de rendimiento est\'e1n por semestres, ser\'e1 necesario sacar una temperatura media semestral. Por tanto, haremos la media de la temperatura m\'e1xima y m\'ednima para cada d\'eda, y despu\'e9s realizaremos otra media para obtener dos temperaturas semetrales al a\'f1o.\
+    \
+    \\item Dataset con los pol\'edgonos de veredas: el gobierno colombiano no dispone libremente los datos georreferenciados de municipios del pa\'eds, no obstante, dispone los de veredas, que se encuentran administrativamente en un nivel inferior y por los cuales se pueden obtener los municipios y concordar as\'ed con los datos de producci\'f3n de ma\'edz, que se encuentran por municipios.\
+\\end\{itemize\}\
+\
+\
+\\subsection\{Requerimientos t\'e9cnicos\}\
+Para poder generar las fuentes de datos necesarias para el proyecto es necesario establecer el cultivo del ma\'edz en las diferentes regiones de Colombia, para ello se deber\'e1 disponer lo siguiente:\
+\
+\\begin\{itemize\}\
+    \\item Contrataci\'f3n de personal cualificado para el cultivo (agricultores).\
+    \\item Calendario de siembra para el cultivo adaptado a cada regi\'f3n de Colombia.\
+    \
+Atendiendo a la bibliograf\'eda encontrada se ha realizado una agrupaci\'f3n de los diferentes municipios de Colombia por zonas: ZAE1 (caribe) , ZAE2 (llanos orientales), ZAE3 (regi\'f3n interandina), ZAE4 (regi\'f3n andina), ZAE5 (regi\'f3n del pac\'edfico)  y ZAE6 (regi\'f3n amaz\'f3nica) \\cite\{ref4\}, esto con el objetivo de reducir la variabilidad en las condiciones de siembra y cosecha.\
+\
+Plante\'e1ndose el siguiente calendario para la siembra:\
+\
+\\begin\{tabular\}\{ |p\{5cm\}|p\{5cm\}|p\{5cm\}|  \}\
+\\hline\
+\\multicolumn\{3\}\{|c|\}\{Calendario de siembra de \\textit\{Zea mays\} en Colombia\} \\\\\
+\\hline\
+Regi\'f3n & Per\'edodo de siembra & Referencia  \\\\\
+\\hline\
+ZAE1 & Abril; septiembre &  \\\\\
+ZAE2 & Marzo  &  \\\\\
+ZAE3 & Marzo; septiembre & modificado de \\cite\{ref4\} \\\\\
+ZAE4; ZAE5; ZAE6 & Febrero; septiembre &  \\\\\
+\\hline\
+\\end\{tabular\}\
+\
+Se ha considerado un periodo est\'e1ndar antes de la recogida de la cosecha de 5 meses dado que en general el ciclo de vida del ma\'edz abarca entre 150 y 300 d\'edas \\cite\{ref5\}.\
+\
+\\item An\'e1lisis qu\'edmico del suelo en cada una de las zonas geogr\'e1ficas con el objetivo de determinar las necesidades nutricionales del mismo y por tanto los complementos necesarios para el desarrollo del cultivo del ma\'edz. Estos complementos se tendr\'e1n en cuenta en la elecci\'f3n del abono apropiado para el campo de cultivo.\
+\
+\\item Sistema de riego optimizado para aquellas regiones donde las precipitaciones son escasas.\
+\
+\\item Contrataci\'f3n del servicio de estaciones meteorol\'f3gicas con el gobierno de Colombia para disponer de los datos de temperatura de las regiones durante el transcurso del cultivo.\
+\
+\\item Contrataci\'f3n del servicio de im\'e1genes de sat\'e9lite con el gobierno de Colombia con el objetivo de delimitar los municipios donde se pretende efectuar el an\'e1lisis. \
+\
+\\end\{itemize\}\
+\
+\\subsection\{Descripci\'f3n del problema\}\
+\
+\\subsubsection\{Inter\'e9s\}\
+\
+El ma\'edz constituye uno de los pilares m\'e1s importantes en la producci\'f3n agr\'edcola de Colombia, encontr\'e1ndose en pr\'e1cticamente todo el territorio \\cite\{ref5\}. \
+Es por esto que consideramos de inter\'e9s la optimizaci\'f3n de su producci\'f3n, concretamente queremos centrarnos en los peque\'f1os agricultores, pretendemos proporcionarles un m\'e9todo para empezando desde cero con el cultivo asegurar que las condiciones de cultivo son \'f3ptimas. As\'ed con una producci\'f3n inicial estable ser\'eda posible ampliar la producci\'f3n,  y podr\'edan hacerlo aplicando de nuevo el m\'e9todo usado.\
+\
+Por tanto, es problema a enfocar en este proye\
+\
+El problema a enfocar es encontrar el municipio de Colombia \'f3ptimo para la producci\'f3n de Zea Mays, adem\'e1s de la temperatura asociada para dicha producci\'f3n \'f3ptima. En definitiva, optimizar la producci\'f3n de ma\'edz en Colombia eligiendo la mejor regi\'f3n de producci\'f3n en base a la variable temperatura.\
+\
+Este enfoque permitir\'eda a los peque\'f1os agricultores, en caso de que no se puedan permitir producir en m\'e1s de una regi\'f3n de Colombia, asegurar en un primer momento una producci\'f3n efectiva en el municipio \'f3ptimo, para despu\'e9s poder ampliar la producci\'f3n eligiendo \
+\
+La raz\'f3n de la elecci\'f3n de la temperatura como variable principal en el an\'e1lisis se basa en que es esencial para el desarrollo del ma\'edz \\cite\{ref10\}\
+\
+\
+\
+\
+\
+\
+        \
+(TEMPORAL) \
+El cambio clim\'e1tico es un problema global que afecta a varios sectores de la industria. En espec\'edfico, la alimentaria es una de las m\'e1s relevantes y la que es m\'e1s afectada por cambios en la climatolog\'eda. Comprender el estado actual de la producci\'f3n agr\'edcola teniendo en cuenta. Javi? qu\'e9 quer\'edas decir aqu\'ed?\
+\
+\\subsubsection\{Cobertura (geogr\'e1fica, temporal)\}\
+\
+La cobertura temporal abarca el per\'edodo 2015-2018, dividiendo los a\'f1os por   semestres. Concretamente para 2018 las medidas finalizan con el primer semestre.\
+\
+En cuanto a la cobertura geogr\'e1fica se centra en Colombia y en los municipios productores del cultivo elegido.\
+\
+La limitaci\'f3n estar\'eda centrada en el per\'edodo estudiado para la producci\'f3n, se ofrecen esos a\'f1os y nada m\'e1s.\
+\
+\\subsubsection\{Objetivos\}\
+\
+Parafrasear los objetivos del principio.\
+\
+\\subsubsection\{Descripci\'f3n de las fuentes de los datos\}\
+\
+Los datos han sido extra\'eddos de las siguientes bases de datos en abierto: \
+\
+- Base de datos en abierto del gobierno de Colombia (https://www.datos.gov.co/). Concretamente los datos de producci\'f3n han sido oobtenidos de la divisi\'f3n de agricultura y desarrollo rural.\
+\
+- The Land Processes Distributed Active Center (LP DACC), que es una base de datos en abierto englobada dentro del sistema de observaci\'f3n de la NASA (NASA Earth Observing System Data and Information System, EOSDIS) en la divisi\'f3n USGS Earth Resources Observation and Science (EROS) (https://lpdaac.usgs.gov/).\
+\
+- Geoportal del Departamento Aministrativo Nacional de Estad\'edstica de Colombia (DANE) (https://geoportal.dane.gov.co/)\
+\
+Los formatos en los que se han recogido los datos han sido los siguientes:\
+\\begin\{itemize\}\
+    \\item Producci\'f3n de ma\'edz en Colombia: formato csv (comma-separated values).\
+    \\item Im\'e1genes de temperatura: formato tiff (Tagged Image File Format) por ser im\'e1genes georreferenciadas.\
+    \\item Pol\'edgonos de veredas en Colombia: formato shp, es decir, formato de archivo inform\'e1tico (shapefile) que almacena las entidades geom\'e9tricas de los objetos\
+\\end\{itemize\}\
+\
+\\section\{Data Management Plan\}\
+\
+A continuaci\'f3n, describimos el plan de gesti\'f3n de los datos, en el que explicaremos c\'f3mo se han creado los datos, se detallar\'e1 c\'f3mo se documentar\'e1n, qui\'e9n podr\'e1 obtenerlos y c\'f3mo. Se especificar\'e1 c\'f3mo ser\'e1n almacenados y si ser\'e1n comparados. \
+\
+Para ello, seguiremos el plan orginizado por H2020 \\cite\{ref6\}. Este documento (que consta de una serie de preguntas) nos ayudar\'e1 a crear unos datos FAIR: findable, accessible, interoperable, re-usable. Por tanto, los datos creados podr\'e1n ser identificados con metadatos que sean accesibles y legibles tanto por m\'e1quinas como por personas, gracias al uso de protocolos est\'e1ndares. Y finalmente, estar\'e1n bien descritos mediante unos metadatos bien explicados. \
+\
+\\subsection\{Data summary\}\
+\
+\\definecolor\{shadecolor\}\{rgb\}\{0.9,0.9,0.9\}\
+\\begin\{shaded\}\
+Prop\'f3sito de la recogida / generaci\'f3n de datos y su relaci\'f3n con los objetivos del proyecto.\
+\\end\{shaded\}\
+Encontrar una relaci\'f3n entre temperatura y rendimiento de la producci\'f3n de ma\'edz que permita decidir cu\'e1l es el mejor municipio de Colombia para alcanzar una mayor producci\'f3n de ma\'edz.\\\\\
+\
+\\begin\{shaded\}\
+\'bfQu\'e9 tipos y formatos de datos generar\'e1 o recoger\'e1  el proyecto?\
+\\end\{shaded\}\
+\
+\\begin\{shaded\}\
+\'bfUsaremos datos ya existentes? \'bfc\'f3mo?\
+\\end\{shaded\}\
+Los datos a usar no van a ser datos ya existentes, pues comenzaremos el proceso desde 0, desde el sembrado, pasando por la instalaci\'f3n de las estaciones metereol\'f3gicas que nos permitir\'e1n controlar la temperatura hasta la toma de im\'e1genes de sat\'e9lite de los municipios de Colombia estudiados.\\\\\
+\
+\\begin\{shaded\}\
+\'bfCu\'e1l es el origen de los datos?\
+\\end\{shaded\}\
+Los datos no tienen un \'fanico origen, provienen de tres fuentes diferentes: estaciones meteorol\'f3gicas, an\'e1lisis de la producci\'f3n de maiz e im\'e1genes de sat\'e9lite de las regiones estudiadas. \\\\\
+\
+poner por aqu\'ed que cada una de estas ramas de datos ha sido depositada en el repositorio correspondiente: gobierno de colombia, dane , etc.\
+\
+\\begin\{shaded\}\
+\'bfCu\'e1l es el tama\'f1o esperado de los datos?\
+\\end\{shaded\}\
+no entiendo a qu\'e9 se refiere con esto.\
+\
+\\begin\{shaded\}\
+\'bfPara qui\'e9n podr\'edan ser \'fatiles estos datos?\
+\\end\{shaded\}\
+Estos datos podr\'edan ser \'fatiles para peque\'f1os agricultures interesados en comenzar a producir ma\'edz, pues la relaci\'f3n temperatura-producci\'f3n, les permitir\'eda saber si una zona es \'f3ptima o no. Reduciendo con mucho el riesgo inicial de producci\'f3n, no se arriesgan a sembrar en una zona no adaptada climatol\'f3gicamente para la producci\'f3n de ma\'edz. As\'ed en el plazo de un a\'f1o podr\'edan tener ganancias fijas que les permitiesen ampliar zona de cultivo en caso de ser necesario.\
+\
+Tambi\'e9n ser\'eda posible saber para una nueva zona, no tiene por qu\'e9 ser uno de los municipios dados, conociendo su temperatura media si es adecuada o no para la producci\'f3n.\
+\
+\\subsection\{Fair Data\}\
+\
+\
+%\\fbox\{otorrinolaring\'f3logo\}\
+\
+\\definecolor\{shadecolor\}\{rgb\}\{0.9,0.9,0.9\}\
+\
+\
+\\textbf\{Hacer los datos accesibles, incluyendo metadatos\}\
+\
+\\begin\{shaded\}\
+\'bfSe pueden encontrar los datos producidos y / o usados en el proyecto con los metadados, identificables y localizables por medio de un mecanismo  de identificaci\'f3n est\'e1ndar? (por ejemplo, identificadores persistentes y \'fanicos como Digital Object Identifiers (DOIs)?\
+\\end\{shaded\}\
+Los datos pueden ser encontrados en el repositorio de github(), junto con este informe en el que se describe su obtenci\'f3n, uso y an\'e1lisis. \\\\\
+\
+\
+\\begin\{shaded\}\
+\'bfQu\'e9 convenciones de nombres se han seguido?\
+\\end\{shaded\}\
+\
+\
+\\begin\{shaded\}\
+\'bfSe proporcionan palabras clave para optimizar la posibilidades de reutilizaci\'f3n?\
+\\end\{shaded\}\
+Las palanras claves proporcionadas son las siguientes: ma\'edz, producci\'f3n, rendimiento, Colombia, municipio, temperatura, dependencia.\\\\\
+\
+\\begin\{shaded\}\
+\'bfQu\'e9 metadados se han creado? En caso de que no haya metadatos est\'e1ndar en la disciplina, indicar el tipo de metadado y c\'f3mo se ha creado.\
+\\end\{shaded\}\
+Se han incluido los siguientes metadatos: t\'edtulo, creador, palabras clave, descripci\'f3n, editor, contribuidor, fecha, tipo, formato, identificador, fuente, idioma, cobertura y derechos.\\\\\
+\
+\
+\\textbf\{Hacer los datos accesibles\}\
+\
+\\begin\{shaded\}\
+\'bfQu\'e9 datos producidos y/o utilizados en el proyecto se presentar\'e1n abiertamente? Si algunos datasets no pueden ser compartidos (o tienen que serlo bajo ciertas restricciones) explica por qu\'e9, separando claramente si el motivo es legal o voluntario. \
+\\end\{shaded\}\
+Se har\'e1n p\'fablicos los datos producidos y de los tres datasets utilizados, tan solo se har\'e1n p\'fablicos los correspondientes a las im\'e1genes georreferenciadas y a los pol\'edgonos de veredas de Colombia, pero no el dataset de la producci\'f3n de ma\'edz debido a que recientemente el gobierno Colombiano deneg\'f3 el acceso al p\'fablico y ahora es un dataset privado. Por tanto, para respetar la medida del gobierno Colombiano, el dataset no se har\'e1 p\'fablico.\\\\\
+\
+\\begin\{shaded\}\
+\'bfC\'f3mo se har\'e1n accesible los datos?\
+\\end\{shaded\}\
+Los datos ser\'e1n accesibles mediante un repositorio github. La direcci\'f3n de dicho repositorio se encuentra disponible como identificador en los metadatos.\\\\\
+\
+\\begin\{shaded\}\
+Si existe alguna restricci\'f3n de uso del repositorio, \'bfqu\'e9 tipo de acceso se necesita? \
+\\end\{shaded\}\
+No existe ninguna restricci\'f3n para el uso del respositorio, es de libre acceso.\\\\\
+\
+\
+\\begin\{shaded\}\
+\'bfSon los datos producidos interoperables? Esto es que permiten el intercambio y reutilizaci\'f3n entre investigadores, instituciones, organizaciones, pa\'edses, etc. (es decir, se adhieren a los est\'e1ndares de formatos y en la medida de lo posible, se adaptan con aplicaciones de software disponibles (abiertas) y, en particular, facilitan las combinaciones con diferentes conjuntos de datos de diferentes or\'edgenes)\
+\\end\{shaded\}\
+Todos los datos ser\'e1n almacenados en distintos documentos con formato csv, por lo tanto, ser\'e1 f\'e1cilmente legible por m\'e1quinas independientemente del pa\'eds o instituci\'f3n que pretenda usarlos.\\\\\
+\
+\
+\\begin\{shaded\}\
+\'bfQu\'e9 tipo de metodolog\'eda, est\'e1ndares o vocabulario de metadata ser\'e1 usado para hacer que los datos sean interoperables?\
+\\end\{shaded\}\
+Para describir los datos/metadatos del documento final, se han seguido los convenios del esquema Dublin Core. Estos metadatos han sido incluidos en ingl\'e9s, para garantizar una mayor interoperabilidad.\\\\\
+\
+\
+\
+\\begin\{shaded\}\
+\'bfQu\'e9 licencia tendr\'e1n los datos para permitir la reutilizaci\'f3n m\'e1s amplia posible?\
+\\end\{shaded\}\
+Nos apoyaremos en Atribuci\'f3n/Reconocimiento 4.0 Licencia P\'fablica Internacional. Por lo tanto, el usuario es libre tanto de compartir, copiar, redistribuir el material tanto como de adaptar, trasnformar y crear a partir de dicho material.[https://creativecommons.org/licenses/by/4.0/deed.es_ES]\\\\\
+\
+\
+\\begin\{shaded\}\
+\'bfCu\'e1ndo estar\'e1n disponibles los datos para su reutilizaci\'f3n? Si se busca un embargo para dar tiempo a publicar o buscar patentes, especifique por qu\'e9 y durante cu\'e1nto tiempo se aplicar\'e1, teniendo en cuenta que los datos de la investigaci\'f3n deben estar disponibles lo antes posible.\
+\\end\{shaded\}\
+HELP\\\\\
+\
+\\begin\{shaded\}\
+\'bfDurante cu\'e1nto tiempo estar\'e1n los datos disponibles para su re\'faso?\
+\\end\{shaded\}\
+Debido a que los datos se encuentr\'e1n disponibles en GitHub, deber\'edan estar permanentemente all\'ed, y si desaparecen, ser\'e1n por razones ajenas a nosotros.\
+\
+\\begin\{shaded\}\
+\'bfSe describen los procesos de garant\'eda de calidad de los datos?\
+\\end\{shaded\}\
+JAVI ?????\
+\
+\
+\
+\\section\{Curaci\'f3n de Datos y ETL\}\
+\
+Las tres fuentes de datos tuvieron que pasar por un proceso de curaci\'f3n y posteriormente por un proceso ETL para obtener una base de datos limpia y lista para realizar cualquier tipo de an\'e1lisis sobre ella.\
+\
+\\subsection\{Preprocesamiento de im\'e1genes\}\
+\
+Las im\'e1genes georreferenciadas de temperatura superficial, obtenidas a partir del producto MOD11A1, del sensor MODIS abordo del sat\'e9lite de la NASA Terra EOS AM-1, fueron las primeras en preprocesarse, ya que era necesario adecuar la temporalidad de estos datos (diaria) a la temporalidad de los datos de producci\'f3n (semestral).\
+\
+Cada imagen de temperatura superficial est\'e1 compuesta por 12 sub-im\'e1genes, conocidas como bandas, de las cuales se utilizaron dos:\
+\
+1. LST\\_Day\\_1km \\\\\
+2. LST\\_Night\\_1km\
+\
+Estas bandas contienen la informaci\'f3n de la temperatura diaria de la superficie terrestre de d\'eda y de noche repartidas en una grilla de 1 km. Ambas bandas fueron utilizadas como temperatura superficial m\'ednima y temperatura superficial m\'e1xima y con ellas calcular la temperatura superficial media por cada valor de pixel de la grilla. De manera adicional, la temperatura, que se encontraba en grados Kelvin, fue convertida a grados centigrados.\
+\
+Teniendo una imagen de temperatura superficial por d\'eda, se calcul\'f3 el promedio por cada pixel de la grilla se manera semestral desde el a\'f1o 2015 hasta el primer semestre del a\'f1o 2018 (fecha hasta la cual se encuentran disponibles los datos de producci\'f3n de ma\'edz). Por tal motivo se redujo la cantidad de im\'e1genes diarias a 7 im\'e1genes correspondientes a la temperatura superficial media semestral de los a\'f1os correspondientes para la cobertura espacial de Colombia.\
+\
+\\subsection\{Preprocesamiento de veredas\}\
+\
+Colombia, hasta el nivel de veredas, se encuentra administrativamente dividida en 3 niveles:\
+\
+\\begin\{itemize\}\
+    \\item Nivel superior: departamentos.\
+    \\item Nivel intermedio: municipios.\
+    \\item Nivel inferior: veredas.\
+\\end\{itemize\}\
+\
+El nivel en el que se encuentran los datos de producci\'f3n de ma\'edz es el de municipios, sin embargo, el dataset de municipios georreferenciados no se encuentra disponible en los datos abiertos ofrecidos por el Gobierno Colombiano, por tal raz\'f3n, se han elegido los datos correspondientes a las veredas, que se encuentran a un nivel inferior y pueden ser transformados a un dataset georreferenciado de municipios en un simple paso.\
+\
+El dataset georreferenciado de veredas contiene asociado una base de datos, en donde cada vereda se encuentra dentro de un municipio. Al tener todas las veredas un municipio asociado, para datos geoespaciales se puede realizar la acci\'f3n de 'disolver'. Disolver datos espaciales permite generar pol\'edgonos de mayor tama\'f1o con respecto a una columna en com\'fan, por tal motivo, todas las verdeas que pertenezcan a un mismo municipio, se unir\'e1n y generar\'e1n un pol\'edgono m\'e1s grande que corresponde a dicho municipio.\
+\
+\\subsection\{Extracci\'f3n de Temperatura Superficial por Municipio\}\
+\
+Teniendo el dataset georreferenciado de municipios, ahora es posibles extraer, por cada imagen georreferenciada, el promedio de temperatura superficial para cada uno de los municipios como el promedio de todos los pixeles de la grilla que se encuentren contenidos o que toquen el pol\'edgono georreferenciado de un municipio en concreto.\
+\
+Esta extracci\'f3n de temperatura superficial por municipio genera una columna adicional a la base de datos del dataset de municipios georreferenciados correspondiente al valor de temperatura superficial de ese municipio, y una columna adicional del semestre y el a\'f1o correspondientes a dicha temperatura.\
+\
+\\subsection\{Uni\'f3n con Datos de Producci\'f3n\}\
+\
+Los municipios se encuentran identificados por un c\'f3digo en la base de datos de producci\'f3n, mientras que la columna de ``periodo'' nos indica el semestre y el a\'f1o al que se encuentran asociados los datos de producci\'f3n. En la base de datos de la temperatura superficial extra\'edda, los municipios se encuentran identificados por el mismo c\'f3digo de municipio, mientras que existe una columna relativa a la columna ``periodo''  de la base de datos de producci\'f3n.\
+\
+Para unir ambas tablas, se cre\'f3 un \'edndice en cada una como la concatenaci\'f3n del c\'f3digo del municipio con el periodo al que corresponde los datos de producci\'f3n o de temperatura superficial en el caso contrario. Dicho c\'f3digo fue utilizado como indicador del ``Join''  entre ambas tablas para obtener una tabla completa con los datos asociaodos de producci\'f3n, municipios, departamentos y temperatura seg\'fan el periodo de estudio y sobre la cual podr\'edan empezarse todo tipo de an\'e1lisis.\
+\
+\
+\
+\\section\{Plan de preservaci\'f3n\}\
+\
+\\section\{An\'e1lisis de los datos\}\
+\
+\
+\
+\\section\{Conclusiones\}\
+\
+\\newpage\
+\
+\\begin\{thebibliography\}\{99\}\
+\\bibitem\{ref1\} Cadena productiva del ma\'edz: \'e1rea de producci\'f3n y rendimiento. Gobierno de Colombia. 2018. https://www.datos.gov.co/Agricultura-y-Desarrollo-Rural/Cadena-Productiva-Ma-z-Area-Producci-n-Y-Rendimien/d968-yfb5\
+\
+\\bibitem\{ref2\} Terra Land Surface Temperature and Emissivity Daily Global 1km. NASA LP DAAC at the USGS EROS Center. https://developers.google.com/earth-engine/datasets/catalog/MODIS\\_006\\_MOD11A1\
+\
+\\bibitem\{ref3\} Nivel de referencia de veredas. Departamento Administrativo Nacional de Estad\'edstica (DANE). 2015. https://geoportal.dane.gov.co/servicios/descarga-y-metadatos/descarga-nivel-de-referencia-de-veredas/\
+\
+\\bibitem\{ref4\} Colombia. In \\textit\{Calendario de cultivos Am\'e9rica Latina y el Caribe\}, volume 186, pages 79-92. FAO, Roma. 2006.\
+\
+\\bibitem\{ref5\} Fisiolog\'eda de la planta del ma\'edz, pages 33-59. In \\textit\{Aspectos t\'e9cnicos de la producci\'f3n de ma\'edz en Colombia\}. Ospina Rojas, J. G. and Duarte P\'e9rez, C.J. 2001. http://www.fao.org/docrep/003/x7650s/x7650s00.htm\
+\
+\\bibitem\{ref6\} Data management - H2020 Online manual. European Comission. https://ec.europa.eu/research/participants/docs/h2020-funding-guide/cross-cutting-issues/open-access-data-management/data-management\\_en.htm\
+\
+\\bibitem\{ref10\} Fisiolog\'eda del ma\'edz tropical. In \\textit\{El ma\'edz en los tr\'f3picos: mejoramiento y producci\'f3n\}. Lafitte, H. R. 2001.\
+\
+\
+\
+\\end\{thebibliography\}\
+\
+\\bibliography\{referencias_informe.bib\}\
+\\bibliographystyle\{apalike\}\
+\\end\{document\}}
